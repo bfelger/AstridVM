@@ -112,9 +112,9 @@ uint16_t program[] = {
 	PUSH, 1,
 	POP,
 	PUSH, 5,
-	CALL, 12,
+	CALL, 24,
 	POP,        // Pop what was on the stack before we called Func 1 (5)
-	CALL, 18,
+	CALL, 36,
 	POP,        // Pop the return value of Func 2 (75)
 	HALT,
 	PUSH, 55,   // Func 1
