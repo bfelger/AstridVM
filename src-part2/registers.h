@@ -25,4 +25,4 @@ typedef enum
 
 #define csp (registers[CSP].r16[3])
 
-#endif
+#endif // __REGISTERS_H
