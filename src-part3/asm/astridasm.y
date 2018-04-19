@@ -37,7 +37,7 @@ instructions: instruction instructions
             | instruction
             ;
 
-instruction	: HALT_OP                       { print_HALT(); }
+instruction : HALT_OP                       { print_HALT(); }
             | NOP_OP                        { print_NOP(); }
             | CALL_OP int_operand           { print_CALL($2); }
             | RETN_OP                       { print_RETN(); }
@@ -47,7 +47,7 @@ instruction	: HALT_OP                       { print_HALT(); }
             | JMPL_OP int_operand           { printf("JMPL\n"); }
             | IDENTIFIER COLON              { set_lookup_def_offset($1); }
 
-int_operand	: INT                           ;
+int_operand : INT                           ;
             | IDENTIFIER                    { add_lookup_entry($1); $$ = 0; }
 
 %%
