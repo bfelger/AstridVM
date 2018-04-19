@@ -60,9 +60,7 @@ int main( int argc, char *argv[] )
 		return 0;
 	}
 
-	// open a file handle to a particular file:
 	yyin = fopen(argv[1], "r");
-	// make sure it's valid:
 	if (!yyin) {
 		printf("Can't open file: %s\n", argv[1]);
 		return -1;
@@ -70,10 +68,7 @@ int main( int argc, char *argv[] )
 
 	prep_out_buf();
 
-	// parse through the input until there is no more:
-	//do {
-		yyparse();
-	//} while (!feof(yyin));
+	yyparse();
 
 	resolve_lookups();
 
