@@ -18,9 +18,9 @@ void yyerror(const char *s);
 %locations
 
 %union {
-	int ival;
-	float fval;
-	char *sval;
+    int ival;
+    float fval;
+    char *sval;
 }
 
 %token HALT_OP NOP_OP CALL_OP RETN_OP RETV_OP PUSH_OP POP_OP JMPL_OP
@@ -34,21 +34,21 @@ void yyerror(const char *s);
 %%
 
 instructions: instruction instructions
-			| instruction
-			;
+            | instruction
+            ;
 
-instruction	: HALT_OP						{ print_HALT(); }
-			| NOP_OP						{ print_NOP(); }
-			| CALL_OP int_operand			{ print_CALL($2); }
-			| RETN_OP						{ print_RETN(); }
-			| RETV_OP int_operand			{ print_RETV($2); }
-			| PUSH_OP int_operand			{ print_PUSH($2); }
-			| POP_OP						{ print_POP(); }
-			| JMPL_OP int_operand			{ printf("JMPL\n"); }
-			| IDENTIFIER COLON				{ set_lookup_def_offset($1); }
+instruction	: HALT_OP                       { print_HALT(); }
+            | NOP_OP                        { print_NOP(); }
+            | CALL_OP int_operand           { print_CALL($2); }
+            | RETN_OP                       { print_RETN(); }
+            | RETV_OP int_operand           { print_RETV($2); }
+            | PUSH_OP int_operand           { print_PUSH($2); }
+            | POP_OP                        { print_POP(); }
+            | JMPL_OP int_operand           { printf("JMPL\n"); }
+            | IDENTIFIER COLON              { set_lookup_def_offset($1); }
 
-int_operand	: INT							;
-			| IDENTIFIER					{ add_lookup_entry($1); $$ = 0; }
+int_operand	: INT                           ;
+            | IDENTIFIER                    { add_lookup_entry($1); $$ = 0; }
 
 %%
 
