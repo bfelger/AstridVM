@@ -4,7 +4,6 @@
 #include "output.h"
 #include "identifiers.h"
 
-// stuff from flex that bison needs to know about:
 extern int yylex();
 extern int yyparse();
 extern FILE *yyin;
