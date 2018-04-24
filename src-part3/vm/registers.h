@@ -4,14 +4,14 @@
 
 #include <stdint.h>
 
-union vm_register {
+typedef union vm_register {
 	uint64_t r64;
 	uint32_t r32[2];
 	uint16_t r16[4];
 	uint8_t r[8];
-};
+} vm_register;
 
-extern union vm_register registers[];
+extern vm_register registers[];
 
 typedef enum
 {
