@@ -18,8 +18,8 @@ typedef enum
 	NUM_REGS
 } registers_names;
 
-#define ip (registers[IP].r16[3])
-#define sp (registers[SP].r16[3])
-#define fp (registers[FP].r16[3])
+#define ip (registers[IP].r16[0])
+#define sp (registers[SP].r16[0])
+#define fp (registers[FP].r16[0])
 
 #endif
