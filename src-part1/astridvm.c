@@ -6,7 +6,7 @@
 #include "opcodes.h"
 #include "registers.h"
 
-union vm_register registers[NUM_REGS];
+vm_register registers[NUM_REGS];
 
 unsigned char stack[STACK_SIZE];
 unsigned char *instructions = NULL;
