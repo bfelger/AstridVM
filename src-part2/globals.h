@@ -22,8 +22,10 @@ typedef struct callstack_record
 extern callstack_record callstack[];
 
 void push_int(uint16_t val);
+void push_offset(OFFSET_TYPE val);
 uint16_t pop_int();
 uint16_t fetch_int();
 OPCODE_TYPE fetch_op();
+OFFSET_TYPE fetch_offset();
 
 #endif // __GLOBALS_H
