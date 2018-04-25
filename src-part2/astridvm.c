@@ -71,13 +71,13 @@ void eval(OPCODE_TYPE opcode)
 		csp--;
 		sp = callstack[csp]._sp;
 
-		push_int(*(uint16_t*)(stack + fp + fetch_int()));
+		push_int(*(OPCODE_TYPE*)(stack + fp + fetch_int()));
 
 		ip = callstack[csp]._ip;
 		fp = callstack[csp]._fp;
 
 #ifdef DEBUG
-		printf("RETV %d\n", *(uint16_t*)(stack + sp));
+		printf("RETV %d\n", *(OPCODE_TYPE*)(stack + sp));
 #endif
 
 		break;
@@ -88,6 +88,12 @@ void push_int(uint16_t val)
 {
 	*(uint16_t*)(stack + sp) = val;
 	sp += 2;
+}
+
+void push_offset(OFFSET_TYPE val)
+{
+    *(OFFSET_TYPE*)(stack + sp) = val;
+    sp += OFFSET_SIZE;
 }
 
 uint16_t pop_int()
@@ -106,6 +112,12 @@ OPCODE_TYPE fetch_op()
 {
 	ip += OPCODE_SIZE;
 	return *(OPCODE_TYPE*)(instructions + ip - OPCODE_SIZE);
+}
+
+OFFSET_TYPE fetch_offset()
+{
+	ip += OFFSET_SIZE;
+	return *(OFFSET_TYPE*)(instructions + ip - OFFSET_SIZE);
 }
 
 uint16_t program[] = {
